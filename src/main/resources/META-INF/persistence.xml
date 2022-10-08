@@ -9,6 +9,8 @@
     <persistence-unit name="jpabegin" transaction-type="RESOURCE_LOCAL">
 <!--        jpabegin : 영속 단위 이름-->
         <class>jpabasic.reserve.domain.User</class>
+        <class>jpabasic.reserve.domain.Hotel</class>
+        <class>jpabasic.reserve.domain.Review</class>
 <!--        매핑 클래스-->
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>

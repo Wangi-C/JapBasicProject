@@ -4,6 +4,31 @@ import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
+/**
+ * <엔티티 클래스 제약조건>
+ * @Entity 적용
+ * @Id 적용
+ * 기본 생성자 필요
+ * 기본 생성자는 public 이나 protected 여야함
+ * 최상위 클래스여야 함
+ * final이면 안됌
+ *
+ * <접근 방법>
+ * 필드 접근 : 필드 값을 사용해서 매핑
+ * 프로퍼티 접근 : gettr, setter 메소드를 사용해서 매핑
+ *
+ * @Id 를 필드에 붙이면 필드 접근
+ *     를 getter메소드에 붙이면 프로퍼티 접근
+ * @Access 사용해서 명시적으로 지정
+ * @Access(AccessType.PROPERTY) / @Access(AccessType.FIELD)
+ *
+ * <식별 컬럼 방식>
+ * @Id 가 붙은 필드에 추가적으로
+ * @GeneratedValue(strategy = GenerateType.IDENTITY) 설정
+ *
+ * persist() 실행할 때 객체에 식별자 값 할당 -> commit 시점
+ * **/
+
 @Entity
 @Table(name = "hotel_info")
 public class Hotel {

@@ -43,7 +43,7 @@ public class UserSaveMain {
                 user.changeName(newName);
             }**/
 
-            User user = new User("user1@user.com", "user", LocalDateTime.now());
+            User user = new User("user2@user.com", "user", LocalDateTime.now());
             entityManager.persist(user);
             transaction.commit();
         } catch (Exception e) {
