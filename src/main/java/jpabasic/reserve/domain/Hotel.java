@@ -1,6 +1,7 @@
 package jpabasic.reserve.domain;
 
 import jakarta.persistence.*;
+import jpabasic.common.Address;
 
 import java.time.LocalDateTime;
 
@@ -44,6 +45,9 @@ public class Hotel {
     @Enumerated(EnumType.STRING)
     private Grade grade;
 
+    @Embedded
+    private Address address;
+
     private LocalDateTime created;
 
     @Column(name = "modified")
@@ -52,13 +56,12 @@ public class Hotel {
     protected Hotel() {
     }
 
-    public Hotel(String id, String name, int year, Grade grade) {
+    public Hotel(String id, String name, int year, Grade grade, Address address) {
         this.id = id;
         this.name = name;
         this.year = year;
         this.grade = grade;
-        this.created = LocalDateTime.now();
-        this.lastModified = LocalDateTime.now();
+        this.address = address;
     }
 
     public String getId() {
@@ -95,6 +98,10 @@ public class Hotel {
                 ", created=" + created +
                 ", lastModified=" + lastModified +
                 '}';
+    }
+
+    public Address getAddress() {
+        return address;
     }
     /**
      * @Entity : 엔티티 클래스에 설정, 필수
